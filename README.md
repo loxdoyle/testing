@@ -91,4 +91,5 @@ If you want to push to a custom repository, you can use the `--registry` flag.
 
 ### hack/
 
-This contains support scripts used to verify aspect
+This contains support scripts used to verify aspects of the repository, such as
+boilerplate headers and generated configuration files.
