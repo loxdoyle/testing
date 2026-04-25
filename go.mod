@@ -15,8 +15,8 @@ require (
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	golang.org/x/net v0.20.0 // indirect
-	golang.org/x/oauth2 v0.16.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/oauth2 v0.17.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	k8s.io/api v0.29.0 // indirect
 	k8s.io/klog/v2 v2.120.1 // indirect
