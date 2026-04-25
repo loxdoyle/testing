@@ -1,14 +1,16 @@
 clusters:
 - gke: projects/cert-manager-tests-trusted/locations/europe-west1-b/clusters/prow-trusted
   name: prow-trusted
-  duration: 48h
+  # Increased duration to 72h to reduce credential rotation frequency
+  duration: 72h
   kubernetesSecret:
     name: kubeconfig-prow-trusted
     namespace: default
 
 - gke: projects/cert-manager-tests-untrusted/locations/europe-west1-b/clusters/prow-untrusted
   name: default
-  duration: 48h
+  # Increased duration to 72h to reduce credential rotation frequency
+  duration: 72h
   kubernetesSecret:
     name: kubeconfig-prow-untrusted
     namespace: default
