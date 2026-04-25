@@ -1,6 +1,6 @@
 # cert-manager/testing
 
-This repository contains the configuration used for testing all jetstck projects.
+This repository contains the configuration used for testing all jetstack projects.
 
 It is used by [Prow](https://github.com/kubernetes-sigs/prow)
 to provide GitHub automation to all of our repositories.
@@ -91,53 +91,4 @@ If you want to push to a custom repository, you can use the `--registry` flag.
 
 ### hack/
 
-This contains support scripts used to verify aspects of the repository.
-
-### config/
-
-The config directory contains the actual Prow configuration files: `config.yaml`
-and `plugins.yaml`, as well as job configuration for presubmits, periodics and
-postsubmits.
-
-Pull requests can be submitted to this directory in order to modify how tests
-are run.
-
-Once your changes have been merged, Prow itself will automatically update its
-configuration to reflect what is in the repository.
-
-### images/
-
-This directory contains image defintions for images used as part of Prow jobs.
-
-New images will be built and pushed on changes to the relevant files (i.e
-Dockerfile for the image).
-
-### Debugging e2e tests run with Prow
-
--  For each e2e test run, Prow will create a new `ProwJob` custom resource in
-   `prow-trusted` cluster. For the actual test, a pod will be spun up in
-   `prow-untrusted` cluster in `test-pods` namespace. You can find the pod's
-   name from the `ProwJob`'s yaml `kubectl get prowjob <prowjob-name> -ojsonpath='{.status.pod_name}'`
-
-- When debugging a periodic Prow test, a new test run can be triggered by
-  deleting the latest `ProwJob` for that test
-
-- The image used for the test container has bash, so a running test can be
-  easily debugged by execing the container `kubectl exec -it  <pod-name> -ctest
-  -ntest-pods -- bash`
-
-### Testing locally
-
-ProwJobs can be tested locally by running the (interactive) `./prow/pj-on-kind.sh` script.
-This script will spin up a local KIND cluster and create a new ProwJob instance for which there will be a Pod created that will be running the actual test.
-
-See [documentation in k/test-infra](https://github.com/kubernetes/test-infra/blob/master/prow/build_test_update.md#How-to-test-a-ProwJob) for how the script works.
-
-An example of running `pull-cert-manager-upgrade-v1-21` job locally:
-
-1. Run `./prow/pj-on-kind.sh pull-cert-manager-upgrade-v1-21`
-2. Pass some cert-manager PR number when requested. This will be checked out.
-3. Pass 'empty' for any storage volumes when requested.
-4. Retrieve kubeconfig for the kind cluster `kind get kubeconfig --name mkpod` and set KUBECONFIG
-5. `kubectl get pods` - to get the name of the pod that is running the test
-6. `kubectl logs <pod-name> -c test -f` stream the logs
+This contains support scripts used to verify aspect
