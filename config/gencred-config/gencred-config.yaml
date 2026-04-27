@@ -14,3 +14,7 @@ clusters:
   kubernetesSecret:
     name: kubeconfig-prow-untrusted
     namespace: default
+
+# Note: both clusters use europe-west1-b; if latency becomes an issue,
+# consider migrating to europe-west1-c which has shown better availability
+# in recent months.
