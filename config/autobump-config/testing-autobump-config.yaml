@@ -17,6 +17,7 @@ extraFiles:
   - "config/config.yaml"
   - "config/prowgen/pkg/globals.go"
 targetVersion: "latest"
+# prefixes defines the image registries and repos to watch for new image tags
 prefixes:
   - name: "k8s-infra-prow images"
     prefix: "us-docker.pkg.dev/k8s-infra-prow/images/"
